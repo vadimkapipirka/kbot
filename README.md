@@ -12,7 +12,7 @@
 
 ## 🚀 Быстрый старт
 
-### 1. Клонирование репозитория
-```bash
-git clone https://github.com/ваш-username/kbot.git
+# Клонирование репозитория
+git clone https://github.com/vadimkapipirka/kbot.git
 cd kbot
+python setup.py
