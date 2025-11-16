@@ -1,0 +1,35 @@
+# Конфигурация
+config.py
+*.env
+
+# Сессии Telegram
+*.session
+session_*
+
+# Кэш Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Логи
+*.log
+logs/
+
+# Резервные копии
+*.bak
+*.old
+backups/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Временные файлы
+*.tmp
+*.temp
+
+# Базы данных
+*.db
+*.sqlite3
