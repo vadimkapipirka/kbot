@@ -1,4 +1,4 @@
-MIT License
+MIT License / Лицензия MIT / Ліцензія MIT
 
 Copyright (c) 2025 vadimkapipirka
 
@@ -12,10 +12,76 @@ furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+---
+
+ENGLISH / EXTENDED TERMS AND FULL DISCLAIMER:
+
+This Telegram userbot software ("Bot") is provided strictly "AS IS". By using, copying, modifying, or redistributing this Bot, you acknowledge and agree to all the following terms:
+
+1. You may use, copy, modify, merge, publish, distribute, sublicense, and/or sell the Bot, or include it in your own projects, **provided that this license and copyright notice are retained in full**.  
+2. You may modify the code of the Bot for personal use or learning purposes, but **you may not remove or alter the copyright notice**.  
+3. You may not distribute the Bot or any modified version to third parties without retaining this license. Redistribution without this license is strictly prohibited.  
+4. Telegram may ban, mute, restrict, or suspend your account at any time, including due to automated actions by the Bot. Authors bear NO responsibility.  
+5. The Bot may send, delete, edit, or forward messages automatically; authors bear NO responsibility for lost, deleted, or altered data.  
+6. Misuse of the Bot, including spam, harassment, or violation of Telegram rules, is entirely the user’s responsibility.  
+7. Any errors, crashes, unexpected behavior, or malfunctions of the Bot are your responsibility.  
+8. Damage to your device, operating system, or other software caused by the Bot is your responsibility.  
+9. Legal, financial, or administrative consequences caused by using this Bot are your responsibility.  
+10. Running the Bot in groups, supergroups, or channels may lead to admin restrictions, bans, or limitations; all responsibility lies with the user.  
+11. Authors explicitly disclaim responsibility for bans, mutes, Telegram restrictions, deletion of messages, accidental spam, mass actions, or misuse by others.  
+12. Commercial use, publication, or inclusion in other services is allowed, **but all risk is on the user**.  
+13. Backup your Telegram account and all data before using the Bot.  
+14. You may not use the Bot to automate actions that are illegal, harmful, or violate Telegram policies.  
+15. By using, modifying, or redistributing this software, you acknowledge that the creators bear **NO liability** for any damage, loss, or consequences.  
+
+---
+
+РУССКИЙ / ПОЛНАЯ ОТВЕТСТВЕННОСТЬ И ПРАВИЛА:
+
+Этот Telegram userbot ("Бот") предоставляется строго "КАК ЕСТЬ".  
+Используя, копируя, изменяя или распространяю этот Бот, вы соглашаетесь со следующими условиями:
+
+1. Вы можете использовать, копировать, изменять, объединять, публиковать, распространять, сублицензировать или продавать Бота, или включать его в свои проекты, **при условии сохранения полной лицензии и уведомления об авторских правах**.  
+2. Вы можете изменять код Бота для личного использования или обучения, но **не имеете права удалять или изменять уведомление об авторских правах**.  
+3. Распространение Бота или его модифицированной версии третьим лицам без сохранения этой лицензии запрещено.  
+4. Telegram может заблокировать, замутить, ограничить или заморозить ваш аккаунт в любое время, включая автоматические действия Бота. Авторы **не несут ответственности**.  
+5. Бот может автоматически отправлять, удалять, редактировать или пересылать сообщения; авторы **не несут ответственности** за потерю, удаление или изменение данных.  
+6. Неправильное использование Бота, включая спам, оскорбления или нарушение правил Telegram, полностью ваша ответственность.  
+7. Любые ошибки, сбои или непредвиденное поведение Бота — на вашей ответственности.  
+8. Повреждение вашего устройства, операционной системы или другого ПО из-за работы Бота — ваша ответственность.  
+9. Юридические, финансовые или административные последствия использования Бота — ваша ответственность.  
+10. Запуск Бота в группах, супергруппах или каналах может привести к ограничениям админов, банам группы или другим ограничениям; ответственность полностью на вас.  
+11. Авторы явно отказываются от ответственности за блокировки, муты, ограничения Telegram, удаление сообщений, случайный спам, массовые действия или неправильное использование другими.  
+12. Коммерческое использование, публикация или включение Бота в другие сервисы разрешено, **но все риски несете вы**.  
+13. Делайте резервные копии аккаунта и данных перед использованием Бота.  
+14. Вы не имеете права использовать Бота для автоматизации действий, которые являются незаконными, вредоносными или нарушают правила Telegram.  
+15. Используя, изменяя или распространяю этот софт, вы соглашаетесь, что авторы **не несут ответственности** за любой ущерб, потерю или последствия.  
+
+---
+
+УКРАИНСКИЙ / ПОВНА ВІДПОВІДАЛЬНІСТЬ ТА ПРАВИЛА:
+
+Цей Telegram userbot ("Бот") надається строго "ЯК Є".  
+Використовуючи, копіюючи, змінюючи або розповсюджуючи цей Бот, ви погоджуєтесь з наступними умовами:
+
+1. Ви можете використовувати, копіювати, змінювати, об’єднувати, публікувати, розповсюджувати, сублицензувати або продавати Бота, або включати його у свої проєкти, **за умови збереження повної ліцензії та авторських прав**.  
+2. Ви можете змінювати код Бота для особистого використання або навчання, але **не маєте права видаляти або змінювати авторські права**.  
+3. Розповсюдження Бота або його модифікованої версії третім особам без збереження цієї ліцензії заборонено.  
+4. Telegram може заблокувати, зам’ютити, обмежити або заморозити ваш акаунт у будь-який момент, включаючи автоматичні дії Бота. Автори **не несуть відповідальності**.  
+5. Бот може автоматично відправляти, видаляти, редагувати або пересилати повідомлення; автори **не несуть відповідальності** за втрату, видалення або зміну даних.  
+6. Неправильне використання Бота, включно зі спамом, образами або порушенням правил Telegram, повністю ваша відповідальність.  
+7. Будь-які помилки, збої або несподівана поведінка Бота — на вашій відповідальності.  
+8. Пошкодження пристрою, ОС або іншого ПЗ через роботу Бота — ваша відповідальність.  
+9. Юридичні, фінансові або адміністративні наслідки використання Бота — ваша відповідальність.  
+10. Запуск Бота в групах, супергрупах або каналах може призвести до обмежень адмінів, банів групи або інших обмежень; відповідальність повністю на вас.  
+11. Автори прямо відмовляються від відповідальності за блокування, мути, обмеження Telegram, видалення повідомлень, випадковий спам, масові дії або неправильне використання іншими.  
+12. Комерційне використання, публікація або включення Бота до інших сервісів дозволено, **але всі ризики несете ви**.  
+13. Робіть резервні копії акаунта та даних перед використанням Бота.  
+14. Ви не маєте права використовувати Бота для автоматизації дій, що є незаконними, шкідливими або порушують правила Telegram.  
+15. Використовуючи, змінюючи або розповсюджуючи цей софт, ви погоджуєтесь, що автори **не несуть жодної відповідальності** за будь-яку шкоду, втрати або наслідки.
+
+---
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED.  
+/ ПРОГРАММА ПРЕДОСТАВЛЯЕТСЯ "КАК ЕСТЬ", БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ.  
+/ ПРОГРАМА НАДАЄТЬСЯ "ЯК Є", БЕЗ БУДЬ-ЯКИХ ГАРАНТІЙ.
