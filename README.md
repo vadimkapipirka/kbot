@@ -20,6 +20,7 @@
 # 1. Клонируем репозиторий
 git clone https://github.com/vadimkapipirka/kbot.git
 cd kbot
+pip install -r requirements.txt
 
 # 2. Устанавливаем зависимости и активируем окружение
 python setup.py
