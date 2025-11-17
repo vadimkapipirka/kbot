@@ -1,5 +1,5 @@
 """
-Модуль проверки обновлений для Kbot
+Модуль проверки обновлений для Kbot 3.0
 Проверяет наличие новых версий на GitHub и уведомляет пользователя
 """
 
@@ -14,7 +14,7 @@ logger = logging.getLogger("Updater")
 
 
 class UpdateChecker:
-    def __init__(self, repo_owner: str, repo_name: str, current_version: str = "2.0"):
+    def __init__(self, repo_owner: str, repo_name: str, current_version: str = "3.0"):
         self.repo_owner = repo_owner
         self.repo_name = repo_name
         self.current_version = current_version
@@ -31,7 +31,7 @@ class UpdateChecker:
             url = f"https://api.github.com/repos/{self.repo_owner}/{self.repo_name}/releases/latest"
 
             headers = {
-                'User-Agent': 'Kbot-Updater',
+                'User-Agent': 'Kbot-Updater-3.0',
                 'Accept': 'application/vnd.github.v3+json'
             }
 
@@ -41,6 +41,10 @@ class UpdateChecker:
                         data = await response.json()
                         self.latest_version = data.get('tag_name', '').lstrip('v')
 
+                        # Исправление: если тег называется "release", считаем что это последняя версия
+                        if self.latest_version.lower() == 'release':
+                            self.latest_version = '3.0'
+                            
                         if self.latest_version and self.is_newer_version(self.latest_version):
                             logger.info(f"🔔 Доступно обновление: {self.latest_version}")
                             return True, self.latest_version
@@ -63,7 +67,7 @@ class UpdateChecker:
             url = f"https://api.github.com/repos/{self.repo_owner}/{self.repo_name}/tags"
 
             headers = {
-                'User-Agent': 'Kbot-Updater',
+                'User-Agent': 'Kbot-Updater-3.0',
                 'Accept': 'application/vnd.github.v3+json'
             }
 
@@ -73,6 +77,9 @@ class UpdateChecker:
                         tags = await response.json()
                         if tags and len(tags) > 0:
                             self.latest_version = tags[0].get('name', '').lstrip('v')
+                            # Исправление для тега "release"
+                            if self.latest_version.lower() == 'release':
+                                self.latest_version = '3.0'
                             if self.is_newer_version(self.latest_version):
                                 return True, self.latest_version
             return False, None
@@ -101,6 +108,7 @@ class UpdateChecker:
             return False
 
         except (ValueError, IndexError):
+            # Если версии не в числовом формате, сравниваем как строки
             return latest_version > self.current_version
 
     def get_update_message(self, latest_version: str) -> str:
@@ -116,21 +124,16 @@ class UpdateChecker:
 2. Или скачайте вручную:
 {self.update_url}
 
-💡 **Что нового:**
-- Исправления ошибок
-- Улучшение производительности
-- Новые функции
-
-🔒 **Рекомендация:** Перед обновлением сделайте бэкап важных данных командой `.backup`
+💡 **Рекомендация:** Перед обновлением сделайте бэкап важных данных командой `.backup`
 """
 
     async def get_changelog(self, latest_version: str) -> str:
-        """Получает changelog для версии"""
+        """Получает changelog для версии с улучшенным форматированием"""
         try:
             url = f"https://api.github.com/repos/{self.repo_owner}/{self.repo_name}/releases/tags/v{latest_version}"
 
             headers = {
-                'User-Agent': 'Kbot-Updater',
+                'User-Agent': 'Kbot-Updater-3.0',
                 'Accept': 'application/vnd.github.v3+json'
             }
 
@@ -140,18 +143,44 @@ class UpdateChecker:
                         data = await response.json()
                         body = data.get('body', '')
                         if body:
-                            return f"📋 **Changelog v{latest_version}:**\n\n{body}"
+                            # Форматируем changelog для лучшего отображения
+                            formatted_body = body.replace('##', '**').replace('-', '•')
+                            return f"📋 **Changelog v{latest_version}:**\n\n{formatted_body}"
             return "📋 Информация об изменениях недоступна"
         except Exception as e:
             logger.error(f"❌ Ошибка получения changelog: {e}")
             return "📋 Не удалось загрузить информацию об изменениях"
+
+    async def get_detailed_update_info(self, latest_version: str) -> str:
+        """Возвращает подробную информацию об обновлении"""
+        changelog = await self.get_changelog(latest_version)
+        
+        message = f"""
+🔄 **Доступно обновление Kbot!**
+
+**Версии:**
+• Текущая: `v{self.current_version}`
+• Новая: `v{latest_version}`
+
+{changelog}
+
+📥 **Способы обновления:**
+1. **Автоматически:** Используйте команду `.update`
+2. **Вручную:** {self.update_url}
+
+🔒 **Рекомендации:**
+• Сделайте бэкап командой `.backup`
+• Обновите зависимости если нужно
+""".strip()
+        
+        return message
 
 
 # Глобальный экземпляр Updater
 update_checker = UpdateChecker(
     repo_owner="vadimkapipirka",
     repo_name="kbot",
-    current_version="2.0"
+    current_version="3.0"
 )
 
 
@@ -165,12 +194,8 @@ async def notify_about_update(bot, chat_id: int):
     try:
         update_available, latest_version = await check_for_updates()
         if update_available:
-            message = update_checker.get_update_message(latest_version)
+            message = await update_checker.get_detailed_update_info(latest_version)
             await bot.client.send_message(chat_id, message)
-
-            changelog = await update_checker.get_changelog(latest_version)
-            await bot.client.send_message(chat_id, changelog)
-
             return True
         return False
     except Exception as e:
@@ -179,22 +204,19 @@ async def notify_about_update(bot, chat_id: int):
 
 
 async def manual_update_check(bot, event):
-    """Ручная проверка обновлений с отправкой результата"""
+    """Ручная проверка обновлений с улучшенным выводом"""
     try:
         await bot.safe_reply(event, "🔄 Проверяю обновления...")
 
         update_available, latest_version = await check_for_updates()
         if update_available:
-            message = update_checker.get_update_message(latest_version)
-            changelog = await update_checker.get_changelog(latest_version)
-
+            message = await update_checker.get_detailed_update_info(latest_version)
             await bot.safe_reply(event, message)
-            await bot.client.send_message(event.chat_id, changelog)
         else:
             if latest_version:
-                await bot.safe_reply(event, f"✅ У вас актуальная версия Kbot `v{update_checker.current_version}` (последняя: `v{latest_version}`)")
+                await bot.safe_reply(event, f"✅ **Kbot обновлен!**\n\nТекущая версия: `v{update_checker.current_version}`\nПоследняя версия: `v{latest_version}`\n\nВаш бот работает на актуальной версии! 🎉")
             else:
-                await bot.safe_reply(event, f"✅ У вас актуальная версия Kbot `v{update_checker.current_version}`")
+                await bot.safe_reply(event, f"✅ **Kbot обновлен!**\n\nТекущая версия: `v{update_checker.current_version}`\n\nНе удалось проверить последнюю версию, но ваш бот работает! 🚀")
 
     except Exception as e:
         await bot.safe_reply(event, f"❌ Ошибка при проверке обновлений: {str(e)}")

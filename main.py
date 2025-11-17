@@ -35,19 +35,20 @@ def check_config():
     return True
 
 async def check_updates_on_start():
-    """Проверяет обновления при запуске бота"""
+    """Проверяет обновления при запуске бота - УЛУЧШЕННАЯ ВЕРСИЯ"""
     try:
         from utils.updater import check_for_updates
         update_available, latest_version = await check_for_updates()
         if update_available:
             logger = logging.getLogger("KbotLauncher")
             logger.info(f"🔔 Доступно обновление: v{latest_version}")
-            logger.info("💡 Используйте .update для установки или .checkupdate для информации")
-            return True
-        return False
+            logger.info("💡 Используйте .update для установки")
+            # Сохраняем информацию об обновлении для показа в .info
+            return True, latest_version
+        return False, None
     except ImportError as e:
         logging.getLogger("KbotLauncher").warning(f"⚠️ Модуль проверки обновлений не найден: {e}")
-        return False
+        return False, None
 
 async def main():
     try:
@@ -71,7 +72,7 @@ async def main():
             logger.warning(f"⚠️ Модуль конвертации не найден: {e}")
         
         # Проверяем обновления при запуске
-        await check_updates_on_start()
+        update_info = await check_updates_on_start()
         
         from core.bot import Kbot
         bot = Kbot()
